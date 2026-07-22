@@ -8,7 +8,7 @@ import {
   Avatar, Chip, Combobox, priceTypeLabel,
 } from '../components';
 import { CityMap, CITY_COORDS } from '../maps';
-import { STATIC_CATEGORIES, STATIC_CITIES } from '../staticData';
+import { STATIC_CATEGORIES, STATIC_CITIES, filterMockListings } from '../staticData';
 
 const searchInputCls =
   'w-full rounded-xl border-0 bg-white px-4 py-3.5 text-sm font-semibold text-stone-900 placeholder:font-semibold placeholder:text-stone-400 focus:outline-none focus:ring-4 focus:ring-amber-400/30';
@@ -130,7 +130,11 @@ export default function Majstori() {
         setSearched(true);
         setSearchedCityId(ctId);
       })
-      .catch(() => setListings([]))
+      .catch(() => {
+        setListings(filterMockListings(catId, ctId));
+        setSearched(true);
+        setSearchedCityId(ctId);
+      })
       .finally(() => setLoading(false));
   }
 
