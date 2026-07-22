@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { api } from '../api';
 import { useLanguage } from '../LanguageContext';
 import { Field, inputCls, ErrorBox, SuccessBox, SubmitButton, IconSearch } from '../components';
+import { STATIC_CATEGORIES, STATIC_CITIES } from '../staticData';
 
 const PHONE_RE = /^[+]?[\d][\d\s/-]{6,14}$/;
 
 export default function NovoBaranje() {
   const { t } = useLanguage();
-  const [categories, setCategories] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [categories, setCategories] = useState(STATIC_CATEGORIES);
+  const [cities, setCities] = useState(STATIC_CITIES);
   const [form, setForm] = useState({
     category_id: '',
     city_id: '',

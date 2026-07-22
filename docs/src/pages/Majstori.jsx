@@ -8,6 +8,7 @@ import {
   Avatar, Chip, Combobox, priceTypeLabel,
 } from '../components';
 import { CityMap, CITY_COORDS } from '../maps';
+import { STATIC_CATEGORIES, STATIC_CITIES } from '../staticData';
 
 const searchInputCls =
   'w-full rounded-xl border-0 bg-white px-4 py-3.5 text-sm font-semibold text-stone-900 placeholder:font-semibold placeholder:text-stone-400 focus:outline-none focus:ring-4 focus:ring-amber-400/30';
@@ -101,8 +102,8 @@ function ListingCard({ l }) {
 export default function Majstori() {
   const { user } = useAuth();
   const { t } = useLanguage();
-  const [categories, setCategories] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [categories, setCategories] = useState(STATIC_CATEGORIES);
+  const [cities, setCities] = useState(STATIC_CITIES);
   const [categoryId, setCategoryId] = useState('');
   const [cityId, setCityId] = useState('');
   const [sort, setSort] = useState('newest');

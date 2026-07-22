@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
 import { useLanguage } from '../LanguageContext';
+import { STATIC_CATEGORIES, STATIC_CITIES } from '../staticData';
 import {
   inputCls, Chip, formatBudget, formatDate,
   IconMapPin, IconCalendar, IconUser, IconPhone, IconClipboard, IconWrench,
@@ -72,8 +73,8 @@ function RequestCard({ r }) {
 export default function Baranja() {
   const { t } = useLanguage();
   const [tab, setTab] = useState('matching'); // matching | all
-  const [categories, setCategories] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [categories, setCategories] = useState(STATIC_CATEGORIES);
+  const [cities, setCities] = useState(STATIC_CITIES);
   const [categoryId, setCategoryId] = useState('');
   const [cityId, setCityId] = useState('');
   const [requests, setRequests] = useState([]);
